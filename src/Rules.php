@@ -9,7 +9,7 @@ namespace KarelWintersky\Composer;
  */
 class Rules
 {
-    const VERSION = 1.0;
+    const VERSION = 1.1;
 
     /**
      * get rules list
