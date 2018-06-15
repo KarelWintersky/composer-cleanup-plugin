@@ -1,0 +1,26 @@
+{
+    "name": "karelwintersky/composer-cleanup-plugin",
+    "type": "composer-plugin",
+    "description": "A composer cleanup plugin, to remove unnecessary files (tests, documentation, etc) to save space.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karel Wintersky",
+            "email": "karel.wintersky@gmail.com"
+        }
+    ],
+    "require": {
+        "composer-plugin-api": "^1.1"
+    },
+    "require-dev": {
+        "composer/composer": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "KarelWintersky\\Composer\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "KarelWintersky\\Composer\\Plugin"
+    }
+}
