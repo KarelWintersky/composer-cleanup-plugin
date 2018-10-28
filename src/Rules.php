@@ -19,12 +19,14 @@ class Rules
     public static function getRules()
     {
         // Default patterns for common files
-        $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs';
+        $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGES* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs';
         $docs.= 'package* demo example examples .gitignore .gitattributes';
 
         $tests = '.travis.yml travis .scrutinizer.yml phpunit.xml* phpunit.php phpcs.xml .php_cs test Test tests Tests';
         
         $additional_rules = [
+            "agelxnash/jevix"                       =>  '',
+
             "anahkiasen/former"                     =>  '',
             "anahkiasen/html-object"                =>  '',
             "anahkiasen/rocketeer"                  =>  '',
@@ -33,10 +35,41 @@ class Rules
             "barryvdh/composer-cleanup-plugin"      =>  ".git",
             "barryvdh/laravel-debugbar"             =>  '',
             "barryvdh/laravel-ide-helper"           =>  '',
+
+            "behat/gherkin"                         =>  '',
+
             "bjeavons/zxcvbn-php"                   =>  '',
             "bllim/datatables"                      =>  '',
 
+            "bower-asset/punycode"                  =>  '',
+            "bower-asset/jplayer"                   =>  'artwork',
+            "bower-asset/bootstrap"                 =>  '',
+            "bower-asset/bluebird"                  =>  'benchmark',
+            "bower-asset/jquery-color"              =>  '',
+            "bower-asset/select2"                   =>  '',
+            "bower-asset/yii2-pjax"                 =>  '',
+            "bower-asset/blueimp-load-image"        =>  '',
+            "bower-asset/select2-bootstrap-theme"   =>  '',
+            "bower-asset/typeahead.js"              =>  '',
+            "bower-asset/blueimp-tpl"               =>  '',
+            "bower-asset/blueimp-canvas-to-blob"    =>  '',
+            "bower-asset/html5shiv"                 =>  '',
+            "bower-asset/jquery-nicescroll"         =>  'demo',
+
             "cartalyst/sentry"                      =>  '',
+            "cebe/markdown"                         =>  '',
+            "cebe/markdown-latex"                   =>  '',
+            "cebe/js-search"                        =>  '',
+
+            "codeception/codeception"               =>  '',
+            "codeception/specify"                   =>  '',
+            "codeception/stub"                      =>  '',
+            "codeception/verify"                    =>  '',
+
+            "cedric/css-tidy"                       =>  'Docs testing',
+
+            "container-interop/container-interop"   =>  '',
+
             "classpreloader/classpreloader"         =>  '',
             "cssjanus/cssjanus"                     =>  "APACHE-LICENSE-2.0.txt ",
 
@@ -55,7 +88,10 @@ class Rules
 
             "dompdf/dompdf"                         =>  "www",
 
+            "ezyang/htmlpurifier"                   =>  '',
+
             "filp/whoops"                           =>  '',
+            "fzaninotto/faker"                      =>  '',
 
             "google/recaptcha"                      =>  '',
 
@@ -86,12 +122,15 @@ class Rules
             "league/stack-robots"                   =>  '',
             "liuggio/statsd-php-client"             =>  '',
 
+            "longman/telegram-bot"                  =>  'doc tests .github',
+
             "maximebf/debugbar"                     =>  "demo",
             "mccool/laravel-auto-presenter"         =>  '',
             "mediawiki/mediawiki-codesniffer"       =>  "COPYRIGHT",
             "mockery/mockery"                       =>  '',
             "monolog/monolog"                       =>  '',
             "mrclay/minify"                         =>  "MIN.txt min_extras min_unit_tests min/builder min/config* min/quick-test* min/utils.php min/groupsConfig.php min/index.php",
+            "mrclay/jsmin-php"                      =>  "",
             "mtdowling/cron-expression"             =>  '',
             "mustache/mustache"                     =>  "bin",
             "myclabs/deep-copy"                     =>  "fixtures",
@@ -117,6 +156,8 @@ class Rules
             "phpdocumentor/type-resolver"           =>  '',
 
             "phpoffice/phpexcel"                    =>  "Examples unitTests changelog.txt",
+            "phpoffice/phpspreadsheet"              =>  "samples",
+
             "php-curl-class/php-curl-class"         =>  '',
             "phpseclib/phpseclib"                   =>  "build",
             "phpspec/prophecy"                      =>  "CHANGES.md",
