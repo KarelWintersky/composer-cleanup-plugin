@@ -6,4 +6,5 @@
 .git                export-ignore
 vendor              export-ignore
 README.md           export-ignore
+LICENSE             export-ignore
 

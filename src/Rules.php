@@ -21,6 +21,7 @@ class Rules
         // Default patterns for common files
         $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGES* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs';
         $docs.= 'package* demo example examples .gitignore .gitattributes';
+        $docs.= '.styleci.yml Vagrantfile';
 
         $tests = '.travis.yml travis .scrutinizer.yml phpunit.xml* phpunit.php phpcs.xml .php_cs test Test tests Tests';
         
@@ -60,6 +61,8 @@ class Rules
             "cebe/markdown"                         =>  '',
             "cebe/markdown-latex"                   =>  '',
             "cebe/js-search"                        =>  '',
+            
+            "cmfcmf/openweathermap-php-api"         =>  'composer.* Examples',
 
             "codeception/codeception"               =>  '',
             "codeception/specify"                   =>  '',
@@ -88,10 +91,15 @@ class Rules
 
             "dompdf/dompdf"                         =>  "www",
 
+            "easmith/selectel-storage"              =>  'example.php composer.json',
             "ezyang/htmlpurifier"                   =>  '',
 
             "filp/whoops"                           =>  '',
+            "foolz/sphinxql-query-builder"          =>  'docs tests composer.json ',
             "fzaninotto/faker"                      =>  '',
+            
+            "ganlvtech/kcaptcha"                    =>  'demos',
+            
 
             "google/recaptcha"                      =>  '',
 
@@ -190,6 +198,11 @@ class Rules
             "sebastian/version"                     =>  '',
 
             "simplepie/simplepie"                   =>  "build compatibility_test ROADMAP.md",
+            
+            "smarty/smarty"                         =>  "*.txt demo",
+            
+            "spatie/regex"                          =>  ".editorconfig .styleci.yml CHANGELOG.md CONTRIBUTING.md LICENSE.md README.md",
+            
             "squizlabs/php_codesniffer"             =>  "licence.txt phpcs.xsd phpcs.xml.dist",
             "stack/builder"                         =>  '',
             "swiftmailer/swiftmailer"               =>  "build* notes test-suite create_pear_package.php",
@@ -213,7 +226,7 @@ class Rules
             "symfony/security"                      =>  '',
             "symfony/security-core"                 =>  '',
             "symfony/translation"                   =>  '',
-            "symfony/var-dumper"                    =>  '',
+            "symfony/var-dumper"                    =>  'Test Tests',
             "symfony/yaml"                          =>  '',
 
             "theseer/tokenizer"                     =>  "phive.xml",
