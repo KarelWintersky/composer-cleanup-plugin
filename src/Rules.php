@@ -19,13 +19,15 @@ class Rules
     public static function getRules()
     {
         // Default patterns for common files
-        $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGES* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs';
-        $docs.= 'package* demo example examples .gitignore .gitattributes';
-        $docs.= '.styleci.yml Vagrantfile';
+        $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGES* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs ';
+        $docs.= 'package* demo example examples .gitignore .gitattributes ';
+        $docs.= '.styleci.yml Vagrantfile ';
 
-        $tests = '.travis.yml travis .scrutinizer.yml phpunit.xml* phpunit.php phpcs.xml .php_cs test Test tests Tests';
+        $tests = 'phpunit.xml* phpunit.php phpcs.xml .php_cs test Test tests Tests ';
+        $tests.= '.travis.yml travis .scrutinizer.yml ';
         
         $additional_rules = [
+            "adbario/php-dot-notation"              =>  '',
             "agelxnash/jevix"                       =>  '',
 
             "anahkiasen/former"                     =>  '',
@@ -76,6 +78,8 @@ class Rules
             "classpreloader/classpreloader"         =>  '',
             "cssjanus/cssjanus"                     =>  "APACHE-LICENSE-2.0.txt ",
 
+            "curl/curl"                             =>  '.gitlab-ci.yml',
+
             "d11wtq/boris"                          =>  '',
             "danielstjules/stringy"                 =>  '',
             "dflydev/markdown"                      =>  '',
@@ -99,7 +103,6 @@ class Rules
             "fzaninotto/faker"                      =>  '',
             
             "ganlvtech/kcaptcha"                    =>  'demos',
-            
 
             "google/recaptcha"                      =>  '',
 
@@ -147,6 +150,7 @@ class Rules
             "nette/mail"                            =>  'contributing.md license.md readme.md',
             "nette/utils"                           =>  'contributing.md license.md readme.md',
             "nikic/php-parser"                      =>  "test_old",
+            "nikic/fast-route"                      =>  "test psalm.xml FastRoute.hhi .hhconfig",
 
             "oojs/oojs-ui"                          =>  "demos .mailmap .stylelintrc .eslintrc.json .rubocop_todo.yml AUTHORS.txt History.md LICENSE-MIT",
             "oyejorge/less.php"                     =>  '',
@@ -184,6 +188,8 @@ class Rules
 
             "rcrowe/twigbridge"                     =>  '',
             "robmorgan/phinx"                       =>  'UPGRADE_*',
+
+            "sabre/event"                           =>  '.php_cs.dist bin phpstan.neon',
 
             "sebastian/code-unit-reverse-lookup"    =>  '',
             "sebastian/comparator"                  =>  '',
