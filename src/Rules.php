@@ -9,8 +9,6 @@ namespace KarelWintersky\Composer;
  */
 class Rules
 {
-    const VERSION = 1.1;
-
     /**
      * get rules list
      *
@@ -19,13 +17,46 @@ class Rules
     public static function getRules()
     {
         // Default patterns for common files
-        $docs = 'LICENSE LICENSE.* COPYING CONTRIBUTING* CHANGES* CHANGELOG* FAQ* HISTORY* UPGRADING* UPGRADE* README* readme* doc docs ';
-        $docs.= 'package* demo example examples .gitignore .gitattributes ';
-        $docs.= '.styleci.yml Vagrantfile ';
+        $docs = [
+            'LICENSE',
+            'LICENSE.*',
+            'license',
+            'license.*',
+            'COPYING',
+            'CONTRIBUTING*',
+            'CHANGES*',
+            'CHANGELOG*',
+            'demo',
+            'doc',
+            'docs',
+            'example',
+            'examples',
+            'FAQ*',
+            'HISTORY*',
+            'package*',
+            'phpcs.xml',
+            'phpunit.php',
+            'phpunit.xml*',
+            'README*',
+            'readme*',
+            'test',
+            'Test',
+            'tests',
+            'Tests',
+            'travis',
+            'UPGRADE*',
+            'UPGRADING*',
+            'Vagrantfile',
+            '.git',
+            '.gitattributes',
+            '.gitignore',
+            '.github',
+            '.php_cs',
+            '.scrutinizer.yml',
+            '.styleci.yml',
+            '.travis.yml'
+        ];
 
-        $tests = 'phpunit.xml* phpunit.php phpcs.xml .php_cs test Test tests Tests ';
-        $tests.= '.travis.yml travis .scrutinizer.yml ';
-        
         $additional_rules = [
             "adbario/php-dot-notation"              =>  '',
             "agelxnash/jevix"                       =>  '',
@@ -35,7 +66,7 @@ class Rules
             "anahkiasen/rocketeer"                  =>  '',
             "anahkiasen/underscore-php"             =>  '',
 
-            "barryvdh/composer-cleanup-plugin"      =>  ".git",
+            "barryvdh/composer-cleanup-plugin"      =>  '',
             "barryvdh/laravel-debugbar"             =>  '',
             "barryvdh/laravel-ide-helper"           =>  '',
 
@@ -58,7 +89,8 @@ class Rules
             "bower-asset/blueimp-canvas-to-blob"    =>  '',
             "bower-asset/html5shiv"                 =>  '',
             "bower-asset/jquery-nicescroll"         =>  'demo',
-
+    
+            "cakephp/chronos"                       =>  'Dockerfile docs.Dockerfile',
             "cartalyst/sentry"                      =>  '',
             "cebe/markdown"                         =>  '',
             "cebe/markdown-latex"                   =>  '',
@@ -95,16 +127,18 @@ class Rules
 
             "dompdf/dompdf"                         =>  "www",
 
-            "easmith/selectel-storage"              =>  'example.php composer.json',
+            "easmith/selectel-storage"              =>  'example.php',
             "ezyang/htmlpurifier"                   =>  '',
 
             "filp/whoops"                           =>  '',
-            "foolz/sphinxql-query-builder"          =>  'docs tests composer.json ',
+            "foolz/sphinxql-query-builder"          =>  'docs tests',
             "fzaninotto/faker"                      =>  '',
             
             "ganlvtech/kcaptcha"                    =>  'demos',
 
             "google/recaptcha"                      =>  '',
+
+            "gumlet/php-image-resize"               =>  '',
 
             "guzzle/guzzle"                         =>  '',
             "guzzlehttp/guzzle"                     =>  '',
@@ -116,13 +150,14 @@ class Rules
             "imagine/imagine"                       =>  "lib/Imagine/Test",
             "intervention/image"                    =>  "public",
             "ircmaxell/password-compat"             =>  '',
+            "imangazaliev/didom"                    =>  'composer.lock ',
 
             "jakub-onderka/php-console-color"       =>  "build.xml example.php",
             "jakub-onderka/php-console-highlighter" =>  "build.xml",
             "jakub-onderka/php-parallel-lint"       =>  "appveyor.yml ",
             "jasonlewis/basset"                     =>  '',
             "jeremeamia/SuperClosure"               =>  "demo",
-            "jetbrains/phpstorm-stubs"              =>  ".idea .git",
+            "jetbrains/phpstorm-stubs"              =>  ".idea",
             "justinrainbow/json-schema"             =>  "demo .php_cs.dist",
 
             "kriswallsmith/assetic"                 =>  '',
@@ -138,17 +173,23 @@ class Rules
             "maximebf/debugbar"                     =>  "demo",
             "mccool/laravel-auto-presenter"         =>  '',
             "mediawiki/mediawiki-codesniffer"       =>  "COPYRIGHT",
+            
+            "mk-j/php_xlsxwriter"                   =>  'composer.lock example*.* examples testbench',
+
+            "mobiledetect/mobiledetectlib"          =>  'docs docker-compose.yml',
             "mockery/mockery"                       =>  '',
-            "monolog/monolog"                       =>  '',
+            "monolog/monolog"                       =>  'phpstan.neon.dist',
+
             "mrclay/minify"                         =>  "MIN.txt min_extras min_unit_tests min/builder min/config* min/quick-test* min/utils.php min/groupsConfig.php min/index.php",
             "mrclay/jsmin-php"                      =>  "",
+
             "mtdowling/cron-expression"             =>  '',
             "mustache/mustache"                     =>  "bin",
             "myclabs/deep-copy"                     =>  "fixtures",
 
             "nesbot/carbon"                         =>  '',
-            "nette/mail"                            =>  'contributing.md license.md readme.md',
-            "nette/utils"                           =>  'contributing.md license.md readme.md',
+            "nette/mail"                            =>  'contributing.md readme.md',
+            "nette/utils"                           =>  'contributing.md readme.md .phpstorm.meta.php',
             "nikic/php-parser"                      =>  "test_old",
             "nikic/fast-route"                      =>  "test psalm.xml FastRoute.hhi .hhconfig",
 
@@ -173,19 +214,22 @@ class Rules
             "php-curl-class/php-curl-class"         =>  '',
             "phpseclib/phpseclib"                   =>  "build",
             "phpspec/prophecy"                      =>  "CHANGES.md",
+    
+            "phpoption/phpoption"                   =>  'Makefile',
 
             "phpunit/php-code-coverage"             =>  ".github build.xml ChangeLog-*.md ",
             "phpunit/php-file-iterator"             =>  "ChangeLog.md ",
             "phpunit/php-text-template"             =>  '',
             "phpunit/php-timer"                     =>  '',
             "phpunit/php-token-stream"              =>  '',
-            "phpunit/phpunit"                       =>  ".github .editorconfig .gitattributes .php_cs.dist appveyor.yml ChangeLog-*.md ",
-            "phpunit/phpunit-mock-objects"          =>  ".github .gitattributes ",
+            "phpunit/phpunit"                       =>  ".editorconfig .php_cs.dist appveyor.yml ChangeLog-*.md ",
+            "phpunit/phpunit-mock-objects"          =>  "",
 
             "predis/predis"                         =>  "bin package.ini",
             "psr/log"                               =>  ".gitignore",
-            "psy/psysh"                             =>  ".editorconfig .styleci.yml ",
-
+            "psy/psysh"                             =>  ".editorconfig ",
+    
+            "ralouphie/mimey"                       =>  '.codeclimate.yml bin mime.types mime.types.custom generate tests',
             "rcrowe/twigbridge"                     =>  '',
             "robmorgan/phinx"                       =>  'UPGRADE_*',
 
@@ -204,10 +248,12 @@ class Rules
             "sebastian/version"                     =>  '',
 
             "simplepie/simplepie"                   =>  "build compatibility_test ROADMAP.md",
+    
+            "skyzyx/mimetypes"                      =>  'customize.json generate template.twig',
             
             "smarty/smarty"                         =>  "*.txt demo",
             
-            "spatie/regex"                          =>  ".editorconfig .styleci.yml CHANGELOG.md CONTRIBUTING.md LICENSE.md README.md",
+            "spatie/regex"                          =>  ".editorconfig CHANGELOG.md CONTRIBUTING.md README.md",
             
             "squizlabs/php_codesniffer"             =>  "licence.txt phpcs.xsd phpcs.xml.dist",
             "stack/builder"                         =>  '',
@@ -237,16 +283,17 @@ class Rules
 
             "theseer/tokenizer"                     =>  "phive.xml",
             "tijsverkoyen/css-to-inline-styles"     =>  '',
+            "true/punycode"                         =>  '',
             "twig/twig"                             =>  '',
 
             "venturecraft/revisionable"             =>  '',
             "vlucas/phpdotenv"                      =>  '',
 
-            "webmozart/assert"                      =>  ".styleci.yml .composer-auth.json ",
+            "webmozart/assert"                      =>  ".composer-auth.json ",
 
             "wikimedia/assert"                      =>  '',
             "wikimedia/at-ease"                     =>  '',
-            "wikimedia/avro"                        =>  "LICENSE.txt NOTICE.txt",
+            "wikimedia/avro"                        =>  "NOTICE.txt",
             "wikimedia/base-convert"                =>  ".editorconfig",
             "wikimedia/cdb"                         =>  '',
             "wikimedia/cldr-plural-rule-parser"     =>  '',
@@ -276,10 +323,11 @@ class Rules
 
         foreach ($additional_rules as $package_name => $custom_rule) {
             $final_rules[ $package_name ] = [
-                $docs,
-                $tests
+                $docs
             ];
-            if (strlen(trim($custom_rule))) array_push($final_rules[ $package_name ], $custom_rule);
+            if (trim( $custom_rule ) !== '') {
+                $final_rules[ $package_name ][] = $custom_rule;
+            }
         }
 
         return $final_rules;

@@ -1,4 +1,5 @@
 <?php
+
 namespace KarelWintersky\Composer;
 
 use Composer\Composer;
@@ -18,8 +19,7 @@ use Composer\Package\BasePackage;
  */
 class Plugin implements PluginInterface, EventSubscriberInterface
 {
-    const VERSION = 1.1;
-    const RELEASE_DATE = '2018-06-15';
+    const RELEASE_DATE = '2021-07-01';
 
     /**
      * @var \Composer\Composer $composer
@@ -140,12 +140,20 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         if (!is_dir($dir)) {
             return false;
         }
-
+        
         foreach ((array)$package_clean_rules as $rules_section) {
             // Split each section of patterns to single globs
-            $patterns = explode(' ', trim($rules_section));
+            $patterns
+                = (is_string($rules_section))
+                ? explode(' ', trim($rules_section))
+                : $rules_section;
+            
 
             foreach ($patterns as $pattern) {
+                if (empty($pattern)) {
+                    continue;
+                }
+                
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
                         $this->filesystem->remove($file);
@@ -155,7 +163,19 @@ class Plugin implements PluginInterface, EventSubscriberInterface
                 }
             }
         }
+        
+        
 
         return true;
+    }
+    
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement deactivate() method.
+    }
+    
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement uninstall() method.
     }
 }
